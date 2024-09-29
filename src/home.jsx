@@ -3,7 +3,7 @@ import insta from "./assets/insta.jpg";
 import git from "./assets/git.jpg";
 import youtube from "./assets/youtube.jpg";
 
-import home1 from "./assets/home/homeimg1.jpg";
+import home0 from "./assets/home/homeimg0.jpg";
 import home2 from "./assets/home/homeimg2.jpg";
 import home3 from "./assets/home/homeimg3.jpg";
 import home4 from "./assets/home/homeimg4.jpg";
@@ -14,6 +14,7 @@ import './App.css';
 
 export const Home = () => {
     return (
+        <body>
         <div className="App">
         <header className="App-header">
           
@@ -23,7 +24,7 @@ export const Home = () => {
           </div>
         </header>
         <div className="app-main">
-                <div className="main-img1"><img src={home1} style={{ width: '350px', height: '500px' }}/></div>
+                <div className="main-img1"><img src={home0} style={{ width: '300px', height: '500px' }}/></div>
                 <div className="main-img2"><img src={home2} style={{ width: '200px', height: '100px' }}/></div>
                 <div className="main-img3"><img src={home3} style={{ width: '200px', height: '400px' }}/></div>
                 <div className="main-img3"><img src={home4} style={{ width: '150px', height: '250px' }}/></div>
@@ -40,23 +41,31 @@ export const Home = () => {
             </div>
             <div className="CSE">
               <a className="under-bar-cse-title">CSE</a>
-              <div className="under-bar-con"><Link className="under-bar-con" to="/stack">stack</Link></div>
-              <div className="under-bar-con"><Link className="under-bar-con" to="/cs" target="_self" >cs</Link></div>
-              <div className="under-bar-con"><Link className="under-bar-con" to="/project" target="_self" >web & app</Link></div>
-              <div className="under-bar-con"><Link className="under-bar-con" to="/blender" target="_self" >blender</Link></div>          
+              <div className="under-bar-title-con">
+                <div className="under-bar-con"><Link className="under-bar-con" to="/stack">stack</Link></div>
+                <div className="under-bar-con"><Link className="under-bar-con" to="/cs" target="_self" >cs</Link></div>
+                <div className="under-bar-con"><Link className="under-bar-con" to="/project" target="_self" >web & app</Link></div>
+                <div className="under-bar-con"><Link className="under-bar-con" to="/blender" target="_self" >blender</Link></div>          
+              </div>
+             
             </div>
             <div className="photobook">
             <a className="under-bar-cse-title">Photobook</a>
-              <div className="under-bar-con"><a className="under-bar-con" href="#" target="_self" >S/S</a></div>
-              <div className="under-bar-con"><a className="under-bar-con" href="#" target="_self" >F/W</a></div>
+                <div className="under-bar-title-con">
+                <div className="under-bar-con"><a className="under-bar-con" href="#" target="_self" >S/S</a></div>
+                <div className="under-bar-con"><a className="under-bar-con" href="#" target="_self" >F/W</a></div>
+                </div>
             </div>
             <div className="etc">
             <a className="under-bar-cse-title">etc.</a>
-            <div className="under-bar-con"><a className="under-bar-con" href="#" target="_self" >tour</a></div>
+            <div className="under-bar-title-con">
+            <div className="under-bar-con"><Link className="under-bar-con" to="/tour" target="_self" >tour</Link></div>
             <div className="under-bar-con"><a className="under-bar-con" href="#" target="_self" >community</a></div>
+            </div>
             </div>
             
         </div>
       </div>
+      </body>
     );
 };

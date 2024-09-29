@@ -9,6 +9,7 @@ import Blender from "./CSE/blender";
 
 //etc.
 import Tour from "./etc/tour";
+import Content from "./etc/content";
 
 import { Home } from "./home";
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/project" element={<Project />} />
       <Route path="/blender" element={<Blender />} />
       <Route path="/tour" element={<Tour />} />
+      <Route path="/content" element={<Content />} />
       </Routes>
     </div>
     </BrowserRouter>

@@ -33,7 +33,8 @@ export const tour = () =>{
                 <div className="tour-contets">
                     <div className="tour-row">
                         <div className="detail-contents">
-                            <img src={imgTest}></img>
+                            <Link to="/content"><img src={imgTest}></img></Link>
+                            
                             <div className="detail-contents-title">
                                 <div className="detail-title">고림동 스벅꾼</div>
                                 <div className="detail-subtitle">2024.02.03-2024.02.07</div>

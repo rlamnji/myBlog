@@ -1,24 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import Stack from "./CSE/stack"; // Stack 컴포넌트가 대문자로 시작해야 함
+import { Home } from "./home";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/stack" element={<Stack />} />
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 

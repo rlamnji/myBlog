@@ -2,6 +2,12 @@ import React from "react";
 import insta from "./assets/insta.jpg";
 import git from "./assets/git.jpg";
 import youtube from "./assets/youtube.jpg";
+
+import home1 from "./assets/home/homeimg1.jpg";
+import home2 from "./assets/home/homeimg2.jpg";
+import home3 from "./assets/home/homeimg3.jpg";
+import home4 from "./assets/home/homeimg4.jpg";
+
 import {Link} from "react-router-dom";
 
 import './App.css';
@@ -16,6 +22,12 @@ export const Home = () => {
             <div className="App-header-subtitle"><span>this is my web blog.</span></div>
           </div>
         </header>
+        <div className="app-main">
+                <div className="main-img1"><img src={home1} style={{ width: '350px', height: '500px' }}/></div>
+                <div className="main-img2"><img src={home2} style={{ width: '200px', height: '100px' }}/></div>
+                <div className="main-img3"><img src={home3} style={{ width: '200px', height: '400px' }}/></div>
+                <div className="main-img3"><img src={home4} style={{ width: '150px', height: '250px' }}/></div>
+        </div>
   
         <div className="app-under-bar">
             <div className="info">

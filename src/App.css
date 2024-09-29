@@ -15,8 +15,7 @@
 
 .App-header {
   background-color: #ffffff;
-  min-height: 100vh;
-
+  min-height: 20vh;
   font-size: calc(10px + 2vmin);
   
 }
@@ -43,6 +42,30 @@
   display: flex;
   font-size: 14px;
 }
+
+.app-main{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.app-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 200px;
+  flex-wrap: wrap;
+  gap: 20px; /* 이미지 간의 간격 */
+  animation: move-horizontal 5s linear infinite;
+  animation: move-horizontal2 5s linear infinite;
+}
+
+.main-img1, .main-img2, .main-img3, .main-img4{
+  margin-right: 150px;
+}
+
 
 .app-under-bar{
   display: flex;
@@ -96,11 +119,10 @@
   font-weight: 700;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes move-horizontal {
+ 
+}
+
+@keyframes move-horizontal2 {
+ 
 }

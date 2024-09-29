@@ -54,6 +54,23 @@
   padding-bottom: 70px;
 }
 
+.info{
+  display: flex;
+  flex-direction: column;
+}
+
+.info-img{
+  display: flex;
+  flex-direction: row;
+}
+
+.info-img img{
+  width: 24px;
+  height: 24px;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
 .CSE, .photobook, .etc{
   display: flex;
   flex-direction: column;

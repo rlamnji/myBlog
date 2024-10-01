@@ -86,7 +86,7 @@ export const tour = () =>{
             </div>
 
             <div className="App-content-upload">
-                <div className="app-content-upload"><a href="#" className="app-header-img">upload</a></div>
+                <div className="app-content-upload"><Link to="/content/upload" className="app-header-img">upload</Link></div>
             </div>
 
           

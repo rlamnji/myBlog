@@ -1,43 +1,82 @@
 import {Link} from "react-router-dom";
-import React from "react";
+import React, { createContext, useState, useContext } from 'react';
+import {useBlog} from "../etc/blogProvider";
+//img
 import insta from "../assets/insta.jpg";
 import git from "../assets/git.jpg";
 import youtube from "../assets/youtube.jpg";
+//css
 import '../css/tour.css';
 import '../css/content.css';
-import imgTest from "../assets/home/homeimg2.jpg";
+import '../css/contentM.css';
 
-export const content = () =>{
+import imgTest from "../assets/home/homeimg2.jpg";
+import addtag from "../assets/contentM/addtag.jpg";
+import bold from "../assets/contentM/bold.jpg";
+import img from "../assets/contentM/img.jpg";
+import italic from "../assets/contentM/Italic.jpg";
+import line from "../assets/contentM/line.jpg";
+import link from "../assets/contentM/link.jpg";
+import text from "../assets/contentM/text.jpg";
+import underline from "../assets/contentM/underline.jpg";
+import content from "./content";
+
+
+export const Upload = () =>{
+    const {state, setState} = useBlog();
+
     return(
         <body>
             <div className="App">
                 <header className="App-header">
                     <div className="App-header-main">
-                        <div className="App-header-title"><span>Content Title</span></div>
+                        <div className="App-header-title"><input name="title" placeholder="제목을 입력해주세요." value = {state.title}  
+                        onChange={(e)=>{
+                            setState({
+                                title : e.target.value, // 바뀜
+                                ...state
+                            })
+                        }} /></div>
                         <div className="App-header-sub">
-                        <div className="App-header-subtitle"><span>2024.01.02-2024.01.05</span></div>
+                        <div className="App-header-subtitle"><input name="date" placeholder="날짜를 입력해주세요." value={state.date} 
+                        onChange={(e)=>{
+                            setState({
+                                ...state,  
+                                date : e.target.value
+
+                            })
+                        }}
+                        /></div>
                         <div className="app-header-img-list">
-                            <div className="App-header-img app-header-content-share"><a href="#" className="app-header-img app-header-content-share">share</a></div>
                             <div className="App-header-list  app-header-content-remove"><a href="#" className="app-header-list">remove</a></div>
-                            <div className="App-header-list"><Link to="/content_edit" className="app-header-list app-header-content-edit">edit</Link></div>
+                            <div className="App-header-img app-header-content-share"><a href="#" className="app-header-img app-header-content-share">upload</a></div>
                         </div>
                         </div>
                     </div>
                     <div className="tour-content-main"></div>
                     <div className="content-main">
-                        <div className="content-main-left"></div>
+                        <div className="content-main-left">
+                            <input name="content" placeholder="내용을 입력해주세요." value = {state.content}  
+                        onChange={(e)=>{
+                            setState({
+                                content : e.target.value, // 바뀜
+                                ...state
+                            })
+                        }} />
+                        </div>
                         <div className="content-main-right">
-                            <div className="right-title">Recommend</div>
-                            <div className="right-content">
-                                <div className="detail-contents-right">
-                                    <Link to="/content"><img src={imgTest}></img></Link>
-                                    
-                                    <div className="detail-contents-title-right">
-                                        <div className="detail-title-right">고림동 스벅꾼</div>
-                                        <div className="detail-subtitle-right">2024.02.03-2024.02.07</div>
-                                    </div>
+                            <div className="addtagdiv"><img src={addtag} className="addtag"/></div>
+                            <div className="content-main-modify">
+                                <div className="textdiv"><img src={text} className="text"/></div>
+                                <div className="textstyle">
+                                    <div className="textstyle-1"><img src={bold} className="bold"/></div>
+                                    <div className="textstyle-2"><img src={underline} className="underline"/></div>
+                                    <div className="textstyle-3"><img src={italic} className="italic"/></div>
                                 </div>
-                    
+                                <div><img src={line} className="line"/></div>
+                                <div className="imgdiv"><img src={img} className="img"/></div>
+                                <div><img src={line} className="line"/></div>
+                                <div className="linkdiv"><img src={link} className="link"/></div>
                             </div>
                             
                         </div>
@@ -84,4 +123,4 @@ export const content = () =>{
     );
 }
 
-export default content;
+export default Upload;

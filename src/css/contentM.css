@@ -1,0 +1,62 @@
+.content-main-right{
+    display: flex;
+    margin-top: 40px;
+    text-align: center;
+    left: 0;
+}
+.addtag{
+    width: 40px;  /* 원하는 너비 */
+    height: auto;
+}
+
+.addtagdiv{
+    display: flex;
+    justify-content: left;
+}
+
+.text, .img, .link{
+    width: 100px;
+    height: auto;
+
+    margin: 10px 0px;
+}
+
+
+.line{
+    width: 200px;
+}
+
+.textstyle{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.bold, .underline, .italic{
+    width: 20px;
+    height: auto;
+    margin : 0px 20px
+}
+
+.textdiv{
+    margin-top: 10px;
+}
+
+.imgdiv, .linkdiv{
+    margin-top: 20px;
+}
+
+.App-header-title input{
+    border: none;
+
+    width: auto;
+    height: 60px;
+    
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.App-header-subtitle input{
+    border: none;
+}
+

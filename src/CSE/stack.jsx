@@ -4,6 +4,8 @@ import insta from "../assets/insta.jpg";
 import git from "../assets/git.jpg";
 import youtube from "../assets/youtube.jpg";
 
+import stackimg from "../assets/stack/stack.png";
+
 export const stack = () =>{
     return(
         <body>
@@ -14,7 +16,7 @@ export const stack = () =>{
                         <div className="App-header-subtitle"><span>기술 스택</span></div>
                     </div>
                     <div>
-                        <div className="app-stack-content">(not yet)</div>
+                        <div className="app-stack-contents"><img src={stackimg} style={{width: '80%', margin: '70px 0px'}}></img></div>
                     </div>
                 </header>
                 <div className="app-under-bar">

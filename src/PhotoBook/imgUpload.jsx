@@ -24,19 +24,19 @@ const ImageUploader = () => {
     const handleFileChange = (event) => {
         const files = Array.from(event.target.files);
         if (files.length > 0) {
-            const newImages = files.map(file => ({
-                url: URL.createObjectURL(file),  // 파일 URL 생성
-                name: file.name,                  // 파일 이름 저장
-            }));
-
-            // 기존 이미지 배열에 새로운 이미지를 추가
+            const newImages = files.map(file => {
+                // URL.createObjectURL을 사용하여 메모리 URL 생성
+                const url = URL.createObjectURL(file);
+                return {
+                    url,
+                    name: file.name,
+                };
+            });
+    
+            // 로컬스토리지에 URL만 저장
             const updatedImages = [...selectedImages, ...newImages];
-
-            // 로컬스토리지에 업데이트된 이미지를 저장
-            localStorage.setItem('images', JSON.stringify(updatedImages));
-
-            // 상태 업데이트
             setSelectedImages(updatedImages);
+            localStorage.setItem('images', JSON.stringify(updatedImages.map(img => img.url)));
         }
     };
 
@@ -84,6 +84,7 @@ const ImageUploader = () => {
                             alt={`Uploaded preview ${index}`}
                             className="uploaded-image"
                             style={{ width: '50%', height: 'auto' }} // 이미지 크기 조정
+                            onLoad={() => console.log(`Image ${index} loaded successfully`)}
                         />
                     </div>
                 ))}

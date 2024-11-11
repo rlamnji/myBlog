@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import React, { createContext, useState, useContext } from 'react';
 import {useBlog} from "../etc/blogProvider";
+import TextEditor from "./textEditor";
 //img
 import insta from "../assets/insta.jpg";
 import git from "../assets/git.jpg";
@@ -24,6 +25,50 @@ import content from "./content";
 
 export const Upload = () =>{
     const {state, setState} = useBlog();
+    const [content, setContent] = useState('');
+    const [isBold, setIsBold] = useState(false);
+    const [isItalic, setIsItalic] = useState(false);
+    const [isUnderline, setIsUnderline] = useState(false);
+    const [image, setImage] = useState(null);
+
+  // 텍스트 스타일 적용
+  const textStyle = {
+    fontWeight: isBold ? 'bold' : 'normal',
+    fontStyle: isItalic ? 'italic' : 'normal',
+    textDecoration: isUnderline ? 'underline' : 'none',
+    width: '100%',
+    height: '900px',
+    resize: 'none',
+    border : '1px solid',
+    fontFamily: 'Arial, sans-serif',
+    fontSize: '18px',
+    lineHeight: '1.5',
+    imgWidth: '30%', // 이미지 크기 조절
+    imgHeight: 'auto', // 비율 유지
+  };
+
+
+    const handleBoldClick = () => setIsBold(!isBold);
+    const handleItalicClick = () => setIsItalic(!isItalic);
+    const handleUnderlineClick = () => setIsUnderline(!isUnderline);
+    const handleImgClick = () =>{
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*'; // 이미지 파일만 선택 가능
+    
+        fileInput.onchange = (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+              setImage(reader.result); // 이미지 미리보기 저장
+            };
+            reader.readAsDataURL(file);
+          }
+        };
+    
+        fileInput.click(); // 파일 선택 창 열기
+    }
 
     return(
         <body>
@@ -33,12 +78,13 @@ export const Upload = () =>{
                         <div className="App-header-title"><input name="title" placeholder="제목을 입력해주세요." value = {state.title}  
                         onChange={(e)=>{
                             setState({
+                                ...state,
                                 title : e.target.value, // 바뀜
-                                ...state
                             })
                         }} /></div>
                         <div className="App-header-sub">
-                        <div className="App-header-subtitle"><input name="date" placeholder="날짜를 입력해주세요." value={state.date} 
+                        <div className="App-header-subtitle"><input name="date" type="date" placeholder="날짜를 입력해주세요." value={state.date}
+                        style={{fontFamily: 'Arial, sans-serif', fontSize:'15px'}} 
                         onChange={(e)=>{
                             setState({
                                 ...state,  
@@ -55,30 +101,25 @@ export const Upload = () =>{
                     </div>
                     <div className="tour-content-main"></div>
                     <div className="content-main">
+                        {/*왼쪽 콘텐츠*/}
                         <div className="content-main-left">
-                            <input name="content" placeholder="내용을 입력해주세요." value = {state.content}  
-                        onChange={(e)=>{
-                            setState({
-                                content : e.target.value, // 바뀜
-                                ...state
-                            })
-                        }} />
+                        <TextEditor content={content} setContent={setContent} style={textStyle} imageUrl={image}/>
                         </div>
+                        {/*오른쪽 스타일 속성*/}
                         <div className="content-main-right">
                             <div className="addtagdiv"><img src={addtag} className="addtag"/></div>
                             <div className="content-main-modify">
                                 <div className="textdiv"><img src={text} className="text"/></div>
-                                <div className="textstyle">
-                                    <div className="textstyle-1"><img src={bold} className="bold"/></div>
-                                    <div className="textstyle-2"><img src={underline} className="underline"/></div>
-                                    <div className="textstyle-3"><img src={italic} className="italic"/></div>
+                                <div className="textstyle">{/* 글씨 굵기, 언더바, 기울임 */}
+                                   <div className="textstyle-1" onClick={handleBoldClick} style={{cursor: 'pointer'}}><img src={bold} className="bold"/></div>
+                                    <div className="textstyle-2" onClick={handleUnderlineClick} style={{cursor: 'pointer'}}><img src={underline} className="underline"/></div>
+                                    <div className="textstyle-3" onClick={handleItalicClick} style={{cursor: 'pointer'}}><img src={italic} className="italic"/></div>
                                 </div>
                                 <div><img src={line} className="line"/></div>
-                                <div className="imgdiv"><img src={img} className="img"/></div>
-                                <div><img src={line} className="line"/></div>
-                                <div className="linkdiv"><img src={link} className="link"/></div>
+                                <div className="imgdiv" onClick={handleImgClick} style={{cursor: 'pointer'}}><img src={img} className="img"/></div> {/* 이미지 업로드 */}
+                                {/*<div><img src={line} className="line"/></div>
+                                <div className="linkdiv"><img src={link} className="link"/></div>{/* 링크 업로드 */}
                             </div>
-                            
                         </div>
                     </div>
                 </header>

@@ -37,7 +37,7 @@
     margin-bottom: 70px;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(2, 1fr); /* 2열 그리드 */
+    grid-template-columns: repeat(3, 1fr); /* 2열 그리드 */
     gap: 100px; /* 아이템 간의 간격 */
   }
   

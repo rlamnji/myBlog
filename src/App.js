@@ -5,7 +5,9 @@ import Stack from "./CSE/stack";
 import Cs from "./CSE/cs";
 import Project from "./CSE/project";
 import Blender from "./CSE/blender";
+
 // Photobook
+import Ss from "./PhotoBook/ss";
 
 //etc.
 import Tour from "./etc/tour";
@@ -27,10 +29,13 @@ function App() {
       <Route path="/cs" element={<Cs />} />
       <Route path="/project" element={<Project />} />
       <Route path="/blender" element={<Blender />} />
+
       <Route path="/tour" element={<Tour />} />
       <Route path="/content" element={<Content />} />
       <Route path="/content_edit" element={<ContentM />} />
       <Route path="/content/upload" element={<Upload />} />
+
+      <Route path="/photoSS" element={<Ss />} />
       </Routes>
     </div>
     </BlogProvider>

@@ -1,20 +1,26 @@
 import {Link} from "react-router-dom";
 import React from "react";
+import ImageUploader from "./imgUpload";
+
 import insta from "../assets/insta.jpg";
 import git from "../assets/git.jpg";
 import youtube from "../assets/youtube.jpg";
 
-export const projects = () =>{
+import '../css/photo.css';
+
+export const ss = () =>{
     return(
         <body>
-        <div className="App">
+            <div className="App">
                 <header className="App-header">
                     <div className="App-header-main">
-                        <div className="App-header-title"><span>Projects</span></div>
-                        <div className="App-header-subtitle"><span>개발 프로젝트</span></div>
+                        <div className="App-header-title"><span>SSFW</span></div>
+                        <div className="App-header-subtitle"><span>four season</span></div>
                     </div>
                     <div>
-                        <div className="app-stack-content">(not yet)</div>
+                        <div className="app-stack-content">
+                            <ImageUploader />
+                        </div>
                     </div>
                 </header>
                 <div className="app-under-bar">
@@ -51,10 +57,10 @@ export const projects = () =>{
             </div>
             
         </div>
-            </div>
+            </div>           
         </body>
- 
+
     );
 }
 
-export default projects;
+export default ss;

@@ -1,0 +1,49 @@
+.app-stack-content{
+    display: flex;
+    text-align: center;
+    justify-content: right;
+
+    margin-right: 150px;
+    margin-top: 30px;
+  
+}
+
+
+.image-uploader-container {
+    position: relative;
+  }
+  
+.app-stack-content-photo {
+    position: fixed; /* 고정된 위치 */
+    top: 150px; /* 원하는 위치로 조정 */
+    right: 100px; /* 원하는 위치로 조정 */
+    z-index: 1000; /* 이미지와 겹치지 않도록 */
+
+    width: 68px;
+    height: 32px;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #F5F5F5;
+
+    font-size: 15px;
+}
+
+.image-grid {
+    margin-top: 50px;
+    margin-bottom: 70px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr); /* 2열 그리드 */
+    gap: 100px; /* 아이템 간의 간격 */
+  }
+  
+  .image-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }

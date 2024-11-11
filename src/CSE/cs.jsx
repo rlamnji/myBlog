@@ -39,8 +39,7 @@ export const cs = () =>{
             <div className="photobook">
             <a className="under-bar-cse-title">Photobook</a>
                 <div className="under-bar-title-con">
-                <div className="under-bar-con"><a className="under-bar-con" href="#" target="_self" >S/S</a></div>
-                <div className="under-bar-con"><a className="under-bar-con" href="#" target="_self" >F/W</a></div>
+                <div className="under-bar-con"><Link className="under-bar-con" to="/photoSS" target="_self" >SSFW</Link></div>
                 </div>
             </div>
             <div className="etc">
